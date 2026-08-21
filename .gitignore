@@ -1,0 +1,16 @@
+# ===== 用户隐私数据：切勿提交到 GitHub =====
+# 含登录账号密码哈希（phantomxjc/phantomxjc123），公开即泄露风险
+notes.db
+# 你在笔记里粘贴的私人图片
+notes_imgs/
+
+# ===== Python 缓存 / 虚拟环境 =====
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# ===== 系统文件 =====
+.DS_Store
+Thumbs.db

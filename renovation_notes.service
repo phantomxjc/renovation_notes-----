@@ -1,0 +1,16 @@
+[Unit]
+Description=装修防宰攻略 笔记版 (Renovation Notes)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=__DIR__
+ExecStart=__DIR__/venv/bin/python app.py
+Restart=always
+RestartSec=3
+User=__USER__
+Environment=PORT=__PORT__
+Environment=BIND=::
+
+[Install]
+WantedBy=multi-user.target

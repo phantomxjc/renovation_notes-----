@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录 · 装修防宰攻略</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #0c5744 0%, #137159 55%, #1c8a6c 100%);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 20px; color: #2a2723;
+    position: relative; overflow: hidden;
+  }
+  /* 装饰窗格：呼应「封窗」专题，半透明网格 + 柔光 */
+  body:before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 66px 66px;
+    -webkit-mask-image: radial-gradient(circle at 28% 18%, #000, transparent 78%);
+    mask-image: radial-gradient(circle at 28% 18%, #000, transparent 78%);
+  }
+  body:after {
+    content: ""; position: absolute; right: -130px; bottom: -130px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.14), transparent 70%);
+  }
+  .card {
+    position: relative; z-index: 1; width: 100%; max-width: 400px;
+    background: rgba(255,255,255,.97); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    border-radius: 22px; padding: 40px 34px 28px;
+    box-shadow: 0 24px 60px rgba(8,40,32,.38);
+    animation: rise .5s ease;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .badge { font-size: 36px; text-align: center; line-height: 1; }
+  .card h1 { margin: 12px 0 4px; font-size: 23px; text-align: center; color: #0c5744; letter-spacing: .5px; }
+  .card .sub { margin: 0 0 26px; text-align: center; color: #807c74; font-size: 13.5px; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 13px; color: #4a463f; margin-bottom: 7px; font-weight: 600; }
+  .field input {
+    width: 100%; padding: 13px 14px; font-size: 15px; color: #2a2723;
+    border: 1px solid #ddd6c8; border-radius: 12px; outline: none;
+    background: #fff; transition: border-color .2s, box-shadow .2s;
+  }
+  .field input:focus { border-color: #137159; box-shadow: 0 0 0 3px rgba(19,113,89,.15); }
+  .btn {
+    width: 100%; padding: 14px; margin-top: 6px; border: none; cursor: pointer;
+    font-size: 16px; font-weight: 700; color: #fff; border-radius: 12px;
+    background: linear-gradient(135deg, #137159, #1c8a6c);
+    transition: transform .12s, box-shadow .2s;
+  }
+  .btn:hover { box-shadow: 0 8px 20px rgba(19,113,89,.35); }
+  .btn:active { transform: translateY(1px); }
+  .err { color: #bf3b2b; font-size: 13px; text-align: center; min-height: 18px; margin: 12px 0 0; }
+  .foot { margin-top: 18px; text-align: center; font-size: 12px; color: #9a958c; }
+  @media (max-width: 480px) { .card { padding: 32px 22px 24px; } }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">🔧</div>
+    <h1>装修防宰攻略</h1>
+    <p class="sub">· 私人笔记知识库 ·</p>
+    <form method="post" action="/login">
+      <div class="field">
+        <label for="u">账号</label>
+        <input id="u" name="username" type="text" autocomplete="username" placeholder="请输入账号" required>
+      </div>
+      <div class="field">
+        <label for="p">密码</label>
+        <input id="p" name="password" type="password" autocomplete="current-password" placeholder="请输入密码" required>
+      </div>
+      <button class="btn" type="submit">登 录</button>
+    </form>
+    <p class="err" id="loginErr"></p>
+    <p class="foot">公网私有部署 · 数据仅存于本机</p>
+  </div>
+</body>
+</html>
